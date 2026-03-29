@@ -10,3 +10,4 @@ GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini
 # VERIFY_TOKEN - Token para verificação do webhook do Instagram
 # INSTAGRAM_ACCESS_TOKEN - Page Access Token do Instagram
 # GEMINI_API_KEY - API Key do Google Gemini
+# INSTAGRAM_PAGE_ID - ID da página do Instagram que será monitorada

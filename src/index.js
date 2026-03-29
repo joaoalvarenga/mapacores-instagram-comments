@@ -35,7 +35,7 @@ async function handleWebhook(request, env, ctx) {
     return new Response("OK", { status: 200 });
   }
 
-  const commentEvents = extractCommentEvents(body);
+  const commentEvents = extractCommentEvents(body, env);
 
   if (commentEvents.length > 0) {
     ctx.waitUntil(processComments(commentEvents, env));
@@ -44,10 +44,15 @@ async function handleWebhook(request, env, ctx) {
   return new Response("OK", { status: 200 });
 }
 
-function extractCommentEvents(body) {
+function extractCommentEvents(body, env) {
   const events = [];
 
   for (const entry of body.entry || []) {
+    if (env.INSTAGRAM_PAGE_ID && entry.id !== env.INSTAGRAM_PAGE_ID) {
+      console.log(`Ignoring event from page ${entry.id}, expected ${env.INSTAGRAM_PAGE_ID}`);
+      continue;
+    }
+
     for (const change of entry.changes || []) {
       if (change.field === "comments") {
         events.push({
