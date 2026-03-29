@@ -37,3 +37,7 @@ venv/
 # Coverage
 coverage/
 .nyc_output/
+
+# Wrangler
+.wrangler/
+.dev.vars
