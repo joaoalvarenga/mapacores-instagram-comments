@@ -1,0 +1,12 @@
+name = "mapacores-instagram-comments"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[vars]
+INSTAGRAM_GRAPH_API_URL = "https://graph.facebook.com/v21.0"
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent"
+
+# Secrets (set via `wrangler secret put`):
+# VERIFY_TOKEN - Token para verificação do webhook do Instagram
+# INSTAGRAM_ACCESS_TOKEN - Page Access Token do Instagram
+# GEMINI_API_KEY - API Key do Google Gemini
